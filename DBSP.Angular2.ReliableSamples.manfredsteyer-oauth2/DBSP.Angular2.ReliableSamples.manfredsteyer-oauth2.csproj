@@ -96,6 +96,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="angular2-newest-new-router-guards-oauth\webpack.config.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -122,7 +123,6 @@
     <Content Include="angular2-newest-new-router-guards-oauth\app\home\home.component.html" />
     <Content Include="angular2-newest-new-router-guards-oauth\favicon.ico" />
     <Content Include="angular2-newest-new-router-guards-oauth\index.html" />
-    <Content Include="angular2-newest-new-router-guards-oauth\webpack.config.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Web.config" />
