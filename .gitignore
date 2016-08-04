@@ -273,12 +273,4 @@ _temp
 !systemjs.config.js
 !typings/typings.d.ts
 !wallaby.js
-<<<<<<< HEAD
-<<<<<<< HEAD
 !webpack.config.js
-=======
-!webpack.config.json
->>>>>>> pf-02-verifying-manfredsteyer-project
-=======
-!webpack.config.json
->>>>>>> 5eba7aa22b9f9e7248d8f1d32f4068b1d66003f1
