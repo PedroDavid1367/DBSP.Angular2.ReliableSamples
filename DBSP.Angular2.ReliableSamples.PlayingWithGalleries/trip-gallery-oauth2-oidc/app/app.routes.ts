@@ -3,6 +3,7 @@ import { AppHomeComponent }            from "./home.feature/app-home.component";
 import { NotFoundComponent }           from "./home.feature/not-found.component";
 import { TripsHomeComponent }          from "./trips.feature/trips-home.component";
 import { CallbackComponent }           from "./home.feature/callback.component";
+import { MaterializeHomeComponent }    from "./materialize-samples/materialize-home.component";
 
 const APP_ROUTES: RouterConfig = [
   {
@@ -17,6 +18,10 @@ const APP_ROUTES: RouterConfig = [
   {
     path: 'trips',
     component: TripsHomeComponent
+  },
+  {
+    path: 'materialize-samples',
+    component: MaterializeHomeComponent
   },
   {
     path: 'callback',
