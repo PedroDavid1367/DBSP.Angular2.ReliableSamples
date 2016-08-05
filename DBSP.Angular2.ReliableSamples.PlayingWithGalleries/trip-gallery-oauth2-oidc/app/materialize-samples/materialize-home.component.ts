@@ -1,10 +1,14 @@
-import { Component }  from '@angular/core'
+import { Component }  from '@angular/core';
+import { DbspCollapsibleComponent } from "./dbsp-collapsible.component";
 
 @Component({
   selector: 'materialize-home',
   template: `
-  Materialize home component
-  `
+  Materialize Home components:
+  <br />
+  <dbsp-collapsible></dbsp-collapsible>
+  `,
+  directives: [DbspCollapsibleComponent]
 })
 export class MaterializeHomeComponent {}
 

@@ -101,6 +101,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="trip-gallery-oauth2-oidc\app\js.libs\oidc-token-manager.js" />
+    <Content Include="trip-gallery-oauth2-oidc\app\materialize-samples\collapsibles-component.html" />
     <Content Include="trip-gallery-oauth2-oidc\LICENSE" />
     <Content Include="trip-gallery-oauth2-oidc\package.json" />
     <Content Include="trip-gallery-oauth2-oidc\README.md" />
@@ -150,6 +151,8 @@
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home.feature\not-found.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home\home.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\main.ts" />
+    <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\materialize-samples\materialize-home.component.ts" />
+    <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\materialize-samples\dbsp-collapsible.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\passenger-search\passenger-search.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\pipes\city.pipe.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\polyfills.ts" />
@@ -163,6 +166,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
