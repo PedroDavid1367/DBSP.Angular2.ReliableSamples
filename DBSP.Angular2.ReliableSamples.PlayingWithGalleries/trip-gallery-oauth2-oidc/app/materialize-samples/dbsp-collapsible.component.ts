@@ -20,7 +20,7 @@ import { MaterializeDirective }  from "angular2-materialize";
 
         <div class="row">
           <!-- I think this would be a nice component --> 
-          <div class="col s12 m6">
+          <div class="col m12">
             <div class="card blue-grey darken-1">
               <div class="card-content white-text">
                 <span class="card-title">Card Title</span>
@@ -37,7 +37,7 @@ import { MaterializeDirective }  from "angular2-materialize";
           </div>
           <!-- End of component -->
 
-          <div class="col s12 m6">
+          <div class="col m12">
             <div class="card blue-grey darken-1">
               <div class="card-content white-text">
                 <span class="card-title">Card Title</span>
@@ -56,6 +56,20 @@ import { MaterializeDirective }  from "angular2-materialize";
       </div>
     </li>
   </ul>
+
+  <!-- Modal Trigger -->
+  <a materialize="leanModal" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="home" class=" modal-action modal-close waves-effect waves-green btn-flat">To home</a>
+      <a href="trips" class=" modal-action modal-close waves-effect waves-green btn-flat">To trips</a>
+    </div>
+  </div>
   `,
   directives: [MaterializeDirective]
 })

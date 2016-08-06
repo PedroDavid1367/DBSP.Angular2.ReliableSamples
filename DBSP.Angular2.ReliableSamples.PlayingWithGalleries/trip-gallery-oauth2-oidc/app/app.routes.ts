@@ -27,10 +27,10 @@ const APP_ROUTES: RouterConfig = [
     path: 'callback',
     component: CallbackComponent
   },
-  {
-    path: '**',
-    redirectTo: '/home', // This should redirect to a help page.
-  },
+  //{
+  //  path: '**',
+  //  redirectTo: '/home', // This should redirect to a help page.
+  //},
 ];
 
 export const APP_ROUTER_PROVIDERS = [

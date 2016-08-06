@@ -104,7 +104,6 @@
     <Content Include="trip-gallery-oauth2-oidc\app\materialize-samples\collapsibles-component.html" />
     <Content Include="trip-gallery-oauth2-oidc\LICENSE" />
     <Content Include="trip-gallery-oauth2-oidc\package.json" />
-    <Content Include="trip-gallery-oauth2-oidc\README.md" />
     <Content Include="trip-gallery-oauth2-oidc\tsconfig.json" />
     <Content Include="trip-gallery-oauth2-oidc\typings.json" />
     <None Include="Web.Debug.config">

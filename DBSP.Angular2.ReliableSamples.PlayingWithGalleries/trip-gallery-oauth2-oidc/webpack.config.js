@@ -23,7 +23,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      /*
+      /* Note on angular2-materialize.
        * Added the next following 4 objects in order to follow angular2-materialize recomendations
        */
       { test: /materialize\.css$/, loader: 'style-loader!css-loader' },
@@ -36,7 +36,9 @@ module.exports = {
         loader: 'raw-loader'
       },
       { test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=100000' },
-
+      /*
+       * End note on angular2-materialize.
+       */
 
       { test: /\.(jpg|jpeg|gif|png)$/, loader: 'file-loader?name=img/[path][name].[ext]' },
       //{ test: /\.css$/, loader: 'raw-loader' },
