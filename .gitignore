@@ -256,7 +256,7 @@ paket-files/
 # These are the ignored items on: https://github.com/angular/quickstart
 
 .idea
-typings/**
+/typings/**
 node_modules
 jspm_packages
 link-checker-results.txt
@@ -274,3 +274,4 @@ _temp
 !typings/typings.d.ts
 !wallaby.js
 !webpack.config.js
+!oidc-token-manager.js
