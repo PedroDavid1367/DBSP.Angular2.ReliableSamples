@@ -1,10 +1,9 @@
-import { Component }             from '@angular/core';
-import { MaterializeDirective }  from "angular2-materialize";
+import { Component, Inject, OnInit, ElementRef }  from '@angular/core';
 
 @Component({
   selector: 'dbsp-collapsible',
   template: `
-  <ul materialize="collapsible" class="collapsible popout" data-collapsible="accordion">
+  <ul class="collapsible popout" data-collapsible="accordion">
     <li>
       <div class="collapsible-header"><i class="material-icons">info_outline</i>First</div>
       <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
@@ -58,7 +57,8 @@ import { MaterializeDirective }  from "angular2-materialize";
   </ul>
 
   <!-- Modal Trigger -->
-  <a materialize="leanModal" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
@@ -66,12 +66,23 @@ import { MaterializeDirective }  from "angular2-materialize";
       <p>A bunch of text</p>
     </div>
     <div class="modal-footer">
-      <a href="home" class=" modal-action modal-close waves-effect waves-green btn-flat">To home</a>
-      <a href="trips" class=" modal-action modal-close waves-effect waves-green btn-flat">To trips</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
   </div>
-  `,
-  directives: [MaterializeDirective]
+  `
 })
-export class DbspCollapsibleComponent {}
+export class DbspCollapsibleComponent implements OnInit {
+
+  constructor( @Inject("$") private $: any,
+    private _elRef: ElementRef) { }
+
+  ngOnInit() {
+    this.$(this._elRef.nativeElement)
+      .find(".collapsible")
+      .collapsible();
+    this.$(this._elRef.nativeElement)
+      .find(".modal-trigger")
+      .leanModal();
+  }
+}
 

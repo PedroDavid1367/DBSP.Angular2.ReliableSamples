@@ -20,8 +20,7 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="left hide-on-med-and-down">
       <li><a [routerLink]="['/home']">Home</a></li>
-      <li><a (click)="toHome()">Home</a></li>
-      <li><a [routerLink]="['/trips']">Trips</a></li>
+      <li><a (click)="accessTrips()">Trips</a></li>
       <li><a [routerLink]="['/materialize-samples']">Materialize</a></li>
     </ul>
     <ul class="right">
@@ -30,7 +29,7 @@
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><a [routerLink]="['/home']">Home</a></li>
-      <li><a [routerLink]="['/trips']">Trips</a></li>
+      <li><a (click)="accessTrips()">Trips</a></li>
       <li><a [routerLink]="['/materialize-samples']">Materialize</a></li>
     </ul>
   </div>
@@ -41,5 +40,20 @@
   <h1 class="text-center">Angular 2 - Trip Gallery</h1>
   <br />
   <router-outlet></router-outlet>
+</div>
+
+
+<!-- Used for asking to login in -->
+<div id="tripsAccessModal" class="modal">
+  <div class="modal-content">
+    <h4>Log in is required</h4>
+    <p>You must be logged in to view this section.</p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="cancel()"
+       class="modal-action modal-close waves-effect waves-green btn btn-flat">Discard</a>
+    <a (click)="login()"
+       class="modal-action modal-close waves-effect waves-green btn btn-flat">Agree</a>
+  </div>
 </div>
 

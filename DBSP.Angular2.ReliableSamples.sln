@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSP.Angular2.ReliableSampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSP.Angular2.ReliableSamples.PlayingWithGalleries", "DBSP.Angular2.ReliableSamples.PlayingWithGalleries\DBSP.Angular2.ReliableSamples.PlayingWithGalleries.csproj", "{FCE84D8F-35FC-4284-A694-D436886DE023}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSP.Angular2.ReliableSamples.UsingAngular2OAuth2", "DBSP.Angular2.ReliableSamples.UsingAngular2OAuth2\DBSP.Angular2.ReliableSamples.UsingAngular2OAuth2.csproj", "{B64819E7-C9B5-4C7E-A4AB-88E1C6079357}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{FCE84D8F-35FC-4284-A694-D436886DE023}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCE84D8F-35FC-4284-A694-D436886DE023}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCE84D8F-35FC-4284-A694-D436886DE023}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B64819E7-C9B5-4C7E-A4AB-88E1C6079357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B64819E7-C9B5-4C7E-A4AB-88E1C6079357}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B64819E7-C9B5-4C7E-A4AB-88E1C6079357}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B64819E7-C9B5-4C7E-A4AB-88E1C6079357}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

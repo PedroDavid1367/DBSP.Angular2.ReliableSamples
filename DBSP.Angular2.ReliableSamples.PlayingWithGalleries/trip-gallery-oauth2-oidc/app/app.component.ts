@@ -1,9 +1,9 @@
-import { Component, OnInit, ElementRef }                  from "@angular/core";
-import { Router, ROUTER_DIRECTIVES }  from "@angular/router";
-import { OidcTokenManagerService }    from "./common.services/OidcTokenManager.service"
-import { MaterializeDirective }       from "angular2-materialize";
+import { Component, OnInit, ElementRef, Inject }  from "@angular/core";
+import { Router, ROUTER_DIRECTIVES }              from "@angular/router";
+import { OidcTokenManagerService }                from "./common.services/OidcTokenManager.service"
+import { MaterializeDirective }                   from "angular2-materialize";
 //import { OAuthService}                from "angular2-oauth2/oauth-service";
-let $ = require("jquery");
+//let $ = require("jquery");
 
 /*
  * Currently the main application component (i.e this) has the functionality to login or logout.
@@ -24,15 +24,19 @@ export class AppComponent implements OnInit {
 
   constructor(private _oidcmanager: OidcTokenManagerService,
     private _elRef: ElementRef,
-    private _router: Router) { }
+    private _router: Router,
+    @Inject("$") private $: any) {
+
+    this._mgr = this._oidcmanager.mgr;
+  }
 
   ngOnInit() {
-    $(this._elRef.nativeElement).find(".button-collapse")
+    this.$(this._elRef.nativeElement)
+      .find(".button-collapse")
       .sideNav({
         closeOnClick: true
       });
   }
-
 
   public logOutOfIdSrv() {
     this._mgr.redirectForLogout();
@@ -45,5 +49,23 @@ export class AppComponent implements OnInit {
 
   public login() {
     this._mgr.redirectForToken();
+  }
+
+  public accessTrips() {
+    if (this._mgr.expired) {
+      this.$(this._elRef.nativeElement)
+        .find("#tripsAccessModal").openModal();
+    } else {
+      this._router.navigate(["/trips"]);
+    }
+  }
+
+  //public loginFromModal() {
+  //  this._router.navigate(["/trips"]);
+  //}
+
+  public cancel() {
+    this.$(this._elRef.nativeElement)
+      .find("#tripsAccessModal").closeModal();
   }
 }

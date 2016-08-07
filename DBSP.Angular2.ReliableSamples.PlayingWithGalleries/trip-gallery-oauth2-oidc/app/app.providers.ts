@@ -8,7 +8,10 @@ import { OidcTokenManagerService }             from "./common.services/OidcToken
 //import { HttpInterceptorService }              from "./common.services/HttpInterceptor.service"
 import { HttpExtendedService }                 from "./common.services/HttpExtended.service"
 import { TripsService }                        from "./trips.feature/trips.services/trips.service";
+import { TripsHomegGuard }                     from "./trips.feature/trips-home.guard";
 import { Router }                              from '@angular/router';
+
+let $ = require("jquery");
 
 //import { FlightService }                       from './services/flight.service';
 //import { OAuthService} from "angular2-oauth2/oauth-service";
@@ -18,9 +21,13 @@ export const APP_PROVIDERS = [
   // provide(PLATFORM_DIRECTIVES, {useValue: FlightCardComponent, multi: true}),
   //FlightService,
   provide("BASE_URL", { useValue: "https://localhost:44315" }), // Gallery REST API Application
+  provide("$", { useValue: $ }),
   OidcTokenManagerService,
   HttpExtendedService,           // This is new one
   TripsService,
+
+  //TripsHomegGuard
+
   //provide(Http, {
   //  useFactory: (xhrBackend: XHRBackend, requestOptions: RequestOptions, router: Router, _oidcToken: OidcTokenManagerService) => {
   //    new HttpInterceptorService(xhrBackend, requestOptions, router, _oidcToken)
