@@ -26,7 +26,7 @@ export const APP_PROVIDERS = [
   HttpExtendedService,           // This is new one
   TripsService,
 
-  //TripsHomegGuard
+  TripsHomegGuard
 
   //provide(Http, {
   //  useFactory: (xhrBackend: XHRBackend, requestOptions: RequestOptions, router: Router, _oidcToken: OidcTokenManagerService) => {

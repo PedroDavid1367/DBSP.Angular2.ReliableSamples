@@ -20,30 +20,33 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="left hide-on-med-and-down">
       <li><a [routerLink]="['/home']">Home</a></li>
-      <li><a (click)="accessTrips()">Trips</a></li>
+      <li><a (click)="openTripsSecurityMessage()">Trips</a></li>
       <li><a [routerLink]="['/materialize-samples']">Materialize</a></li>
-    </ul>
-    <ul class="right">
-      <li><a (click)="login()">Log in</a></li>
-      <li><a (click)="logOutOfIdSrv()">Log out</a></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><a [routerLink]="['/home']">Home</a></li>
-      <li><a (click)="accessTrips()">Trips</a></li>
+      <li><a (click)="openTripsSecurityMessage()">Trips</a></li>
       <li><a [routerLink]="['/materialize-samples']">Materialize</a></li>
+    </ul>
+    <ul class="right">
+      <li *ngIf="_mgr.expired"><a (click)="login()">Log in</a></li>
+      <!--<li *ngIf="!_mgr.expired">
+        <span>You're logged as {{ _mgr.profile.given_name }}</span>
+      </li>-->
+      <li *ngIf="!_mgr.expired"><a (click)="openLogoutMessage()">You're logged as {{ _mgr.profile.given_name }}</a></li>
     </ul>
   </div>
 </nav>
 
 
 <div class="container">
-  <h1 class="text-center">Angular 2 - Trip Gallery</h1>
+  <h1 class="center-align">Angular 2 - Trip Gallery</h1>
   <br />
   <router-outlet></router-outlet>
 </div>
 
 
-<!-- Used for asking to login in -->
+<!-- Used for asking to log in -->
 <div id="tripsAccessModal" class="modal">
   <div class="modal-content">
     <h4>Log in is required</h4>
@@ -52,8 +55,22 @@
   <div class="modal-footer">
     <a (click)="cancel()"
        class="modal-action modal-close waves-effect waves-green btn btn-flat">Discard</a>
-    <a (click)="login()"
+    <a (click)="toTrips()"
        class="modal-action modal-close waves-effect waves-green btn btn-flat">Agree</a>
+  </div>
+</div>
+
+<!-- Used for asking to log out -->
+<div id="logoutModal" class="modal">
+  <div class="modal-content">
+    <h4>Log out confirmation</h4>
+    <p>Are you sure to log out of the application?</p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="logOutOfIdSrv()"
+       class="modal-action modal-close waves-effect waves-green btn btn-flat">Yes</a>
+    <a (click)="closeLogoutMessage()"
+       class="modal-action modal-close waves-effect waves-green btn btn-flat">Cancel</a>
   </div>
 </div>
 

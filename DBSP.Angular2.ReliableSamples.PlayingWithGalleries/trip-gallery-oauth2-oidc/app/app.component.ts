@@ -51,21 +51,34 @@ export class AppComponent implements OnInit {
     this._mgr.redirectForToken();
   }
 
-  public accessTrips() {
+  public openTripsSecurityMessage() {
     if (this._mgr.expired) {
       this.$(this._elRef.nativeElement)
         .find("#tripsAccessModal").openModal();
     } else {
-      this._router.navigate(["/trips"]);
+      this.toTrips();
     }
   }
 
-  //public loginFromModal() {
-  //  this._router.navigate(["/trips"]);
-  //}
+  public toTrips() {
+    // Since "trips" has a guard, just try to navigate there;
+    // router is in charge of verify the availability through
+    // TripsHomeGuard
+    this._router.navigate(["/trips"]);
+  }
 
   public cancel() {
     this.$(this._elRef.nativeElement)
       .find("#tripsAccessModal").closeModal();
+  }
+
+  public openLogoutMessage() {
+    this.$(this._elRef.nativeElement)
+      .find("#logoutModal").openModal();
+  }
+
+  public closeLogoutMessage() {
+    this.$(this._elRef.nativeElement)
+      .find("#logoutModal").closeModal();
   }
 }

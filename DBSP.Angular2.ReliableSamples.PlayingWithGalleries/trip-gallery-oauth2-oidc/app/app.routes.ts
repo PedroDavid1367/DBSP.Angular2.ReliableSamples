@@ -19,7 +19,7 @@ const APP_ROUTES: RouterConfig = [
   {
     path: 'trips',
     component: TripsHomeComponent,
-    //canActivate: [TripsHomegGuard]
+    canActivate: [TripsHomegGuard]
   },
   {
     path: 'materialize-samples',
