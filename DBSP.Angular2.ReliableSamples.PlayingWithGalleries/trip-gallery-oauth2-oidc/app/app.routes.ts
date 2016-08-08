@@ -5,6 +5,7 @@ import { TripsHomeComponent }          from "./trips.feature/trips-home.componen
 import { TripsHomegGuard }             from "./trips.feature/trips-home.guard";
 import { CallbackComponent }           from "./home.feature/callback.component";
 import { MaterializeHomeComponent }    from "./materialize-samples/materialize-home.component";
+import { NotesHomeComponent }          from "./notes.feature/notes-home.component"; 
 
 const APP_ROUTES: RouterConfig = [
   {
@@ -24,6 +25,10 @@ const APP_ROUTES: RouterConfig = [
   {
     path: 'materialize-samples',
     component: MaterializeHomeComponent
+  },
+  {
+    path: 'note-components',
+    component: NotesHomeComponent
   },
   {
     path: 'callback',

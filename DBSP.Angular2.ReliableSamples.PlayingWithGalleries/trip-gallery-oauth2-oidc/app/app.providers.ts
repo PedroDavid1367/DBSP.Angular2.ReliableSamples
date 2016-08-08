@@ -10,6 +10,7 @@ import { HttpExtendedService }                 from "./common.services/HttpExten
 import { TripsService }                        from "./trips.feature/trips.services/trips.service";
 import { TripsHomegGuard }                     from "./trips.feature/trips-home.guard";
 import { Router }                              from '@angular/router';
+import { IHeroService }                        from "./notes.feature/hero.service";
 
 let $ = require("jquery");
 
@@ -25,7 +26,7 @@ export const APP_PROVIDERS = [
   OidcTokenManagerService,
   HttpExtendedService,           // This is new one
   TripsService,
-
+  IHeroService,
   TripsHomegGuard,         // Not quite sure about this guard.
 
   // The router dependency could be avoided since actually does nothing in the current service.
