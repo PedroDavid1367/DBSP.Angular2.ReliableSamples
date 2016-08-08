@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, Inject }  from "@angular/core";
 import { Router, ROUTER_DIRECTIVES }              from "@angular/router";
 import { OidcTokenManagerService }                from "./common.services/OidcTokenManager.service"
 import { MaterializeDirective }                   from "angular2-materialize";
-//import { OAuthService}                from "angular2-oauth2/oauth-service";
+//import { OAuthService }               from "angular2-oauth2/oauth-service";
 //let $ = require("jquery");
 
 /*

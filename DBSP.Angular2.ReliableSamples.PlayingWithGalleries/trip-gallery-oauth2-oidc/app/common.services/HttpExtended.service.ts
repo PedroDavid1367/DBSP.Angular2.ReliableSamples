@@ -18,10 +18,9 @@ export class HttpExtendedService {
     if (RegExp(apiUrl).test(url)) {
       let headers = new Headers();
       headers.set('Accept', 'text/json');
-      headers.set('Authorization', 'Bearer ' + this._oidcToken.mgr.access_token)
+      headers.set('Authorization', 'Bearer ' + this._oidcToken.mgr.access_token);
       return headers;
     } 
-
     return null;
   }
 
