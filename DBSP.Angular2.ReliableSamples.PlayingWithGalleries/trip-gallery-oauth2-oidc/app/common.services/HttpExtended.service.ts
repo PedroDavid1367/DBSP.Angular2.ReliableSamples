@@ -7,20 +7,24 @@ import { OidcTokenManagerService }  from "./OidcTokenManager.service"
 export class HttpExtendedService {
 
   //@Inject("BASE_URL") private _baseUrl: string;
+  private _mgr: any;
 
   constructor(private _http: Http, private _oidcToken: OidcTokenManagerService,
-    @Inject("BASE_URL") private _baseUrl: string) { }
+    @Inject("BASE_URL") private _baseUrl: string) {
+
+    this._mgr = _oidcToken.mgr;
+  }
 
   private checkApiCall(url: string) {
     let apiUrl = this._baseUrl + "/api";
 
-    // TODO: Check if access token is already contained.
     if (RegExp(apiUrl).test(url)) {
       let headers = new Headers();
       headers.set('Accept', 'text/json');
-      headers.set('Authorization', 'Bearer ' + this._oidcToken.mgr.access_token);
+      headers.set('Authorization', 'Bearer ' + this._mgr.access_token);
       return headers;
-    } 
+    }
+     
     return null;
   }
 

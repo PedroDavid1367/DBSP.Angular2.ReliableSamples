@@ -1,20 +1,24 @@
 ﻿import { HTTP_PROVIDERS, Http, Request, RequestOptionsArgs, Response, XHRBackend,
   RequestOptions, ConnectionBackend, Headers }         from '@angular/http';
 import { Router }                                      from '@angular/router';
-import { Injectable, Inject}                           from '@angular/core';
-import { LocationStrategy, HashLocationStrategy }      from '@angular/common';
+import { Injectable, Inject }                          from '@angular/core';
 import { Observable }                                  from 'rxjs/Observable';
 import { OidcTokenManagerService }                     from "./OidcTokenManager.service"
-import * as _                                          from "lodash";
+
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
+import "rxjs/add/observable/empty";
 
 export class HttpInterceptorService extends Http {
 
   @Inject("BASE_URL") private _baseUrl: string;
+  private _mgr: any;
 
   constructor(backend: ConnectionBackend, defaultOptions: RequestOptions,
     private _router: Router, private _oidcToken: OidcTokenManagerService) {
 
     super(backend, defaultOptions);
+    this._mgr = _oidcToken.mgr;
   }
 
   request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
@@ -23,61 +27,56 @@ export class HttpInterceptorService extends Http {
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
     debugger;
-    let opt = this.checkApiCall(options);
-    return this.intercept(super.get(url, opt));
+    return this.intercept(super.get(url, this.checkApiCall(url, options)));
   }
 
   post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.intercept(super.post(url, this.checkApiCall(options)));
-    //return this.intercept(super.post(url, body, this.getRequestOptionArgs(options)));
+    return this.intercept(super.post(url, body, options));
   }
 
   put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.intercept(super.put(url, this.checkApiCall(options)));
-    //return this.intercept(super.put(url, body, this.getRequestOptionArgs(options)));
+    return this.intercept(super.put(url, body, options));
   }
 
   delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.intercept(super.delete(url, this.checkApiCall(options)));
+    return this.intercept(super.delete(url, options));
   }
 
-  //getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {
-  //  if (options == null) {
-  //    options = new RequestOptions();
-  //  }
-  //  if (options.headers == null) {
-  //    options.headers = new Headers();
-  //  }
-  //  options.headers.append('Content-Type', 'application/json');
-  //  return options;
+  //public get(url) {
+  //  return this._http.get(url, {
+  //    headers: this.checkApiCall(url)
+  //  });
   //}
 
-  checkApiCall(options?: RequestOptionsArgs): RequestOptionsArgs {
+  private checkApiCall(url: string, options?: RequestOptionsArgs): RequestOptionsArgs {
     let apiUrl = this._baseUrl + "/api";
 
     if (options == null) {
       options = new RequestOptions();
     }
+
     if (options.headers == null) {
       options.headers = new Headers();
     }
-    if (RegExp(apiUrl).test(options.url)) {
+
+    if (!this._mgr.expired && RegExp(apiUrl).test(url)) {
       options.headers.set('Accept', 'text/json');
-      options.headers.set('Authorization', 'Bearer ' + this._oidcToken.mgr.access_token)
+      options.headers.set('Authorization', 'Bearer ' + this._oidcToken.mgr.access_token);
     }
-    return options;
+    return options; 
   }
 
   intercept(observable: Observable<Response>): Observable<Response> {
-    //return observable.catch((err, source) => {
-    //  if (err.status == 401 && !_.endsWith(err.url, 'api/auth/login')) {
-    //    this._router.navigate(['/login']);
-    //    return Observable.empty();
-    //  } else {
-    //    return Observable.throw(err);
-    //  }
-    //});
-    return observable;
+    let apiUrl = this._baseUrl + "/api";
+
+    return observable.catch((err, source) => {
+      if (err.status == 401 && RegExp(apiUrl).test(err.url)) {
+        this._mgr.redirectForToken();
+        return Observable.empty();
+      } else {
+        return Observable.throw(err);
+      }
+    });
   }
 }
 

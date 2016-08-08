@@ -26,8 +26,10 @@ export const APP_PROVIDERS = [
   HttpExtendedService,           // This is new one
   TripsService,
 
-  TripsHomegGuard
+  TripsHomegGuard,         // Not quite sure about this guard.
 
+  // The router dependency could be avoided since actually does nothing in the current service.
+  //HttpInterceptorService
   //provide(Http, {
   //  useFactory: (xhrBackend: XHRBackend, requestOptions: RequestOptions, router: Router, _oidcToken: OidcTokenManagerService) => {
   //    new HttpInterceptorService(xhrBackend, requestOptions, router, _oidcToken)
