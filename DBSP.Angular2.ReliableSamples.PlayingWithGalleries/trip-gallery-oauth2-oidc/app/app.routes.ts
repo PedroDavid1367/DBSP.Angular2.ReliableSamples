@@ -7,6 +7,9 @@ import { CallbackComponent }           from "./home.feature/callback.component";
 import { MaterializeHomeComponent }    from "./materialize-samples/materialize-home.component";
 import { NotesHomeComponent }          from "./notes.feature/notes-home.component"; 
 
+import { LocalLogoutComponent }        from "./home.feature/local-logout.component";
+import { SilentRefreshComponent }      from "./home.feature/silent-refresh.component";
+
 const APP_ROUTES: RouterConfig = [
   {
     path: '',
@@ -33,6 +36,14 @@ const APP_ROUTES: RouterConfig = [
   {
     path: 'callback',
     component: CallbackComponent
+  },
+  {
+    path: 'local-logout',
+    component: LocalLogoutComponent
+  },
+  {
+    path: 'silent-refresh',
+    component: SilentRefreshComponent
   },
   //{
   //  path: '**',

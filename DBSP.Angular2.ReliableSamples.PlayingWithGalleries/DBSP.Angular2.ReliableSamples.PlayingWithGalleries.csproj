@@ -146,6 +146,8 @@
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\flight-edit\flight-edit.guard.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\flight-search\flight-search.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home.feature\app-home.component.ts" />
+    <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home.feature\local-logout.component.ts" />
+    <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home.feature\silent-refresh.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home.feature\callback.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home.feature\not-found.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home\home.component.ts" />

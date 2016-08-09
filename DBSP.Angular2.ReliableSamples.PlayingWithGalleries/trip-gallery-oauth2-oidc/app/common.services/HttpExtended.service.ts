@@ -6,7 +6,6 @@ import { OidcTokenManagerService }  from "./OidcTokenManager.service"
 @Injectable()
 export class HttpExtendedService {
 
-  //@Inject("BASE_URL") private _baseUrl: string;
   private _mgr: any;
 
   constructor(private _http: Http, private _oidcToken: OidcTokenManagerService,
@@ -17,14 +16,12 @@ export class HttpExtendedService {
 
   private checkApiCall(url: string) {
     let apiUrl = this._baseUrl + "/api";
-
     if (RegExp(apiUrl).test(url)) {
       let headers = new Headers();
       headers.set('Accept', 'text/json');
       headers.set('Authorization', 'Bearer ' + this._mgr.access_token);
       return headers;
-    }
-     
+    }     
     return null;
   }
 
@@ -39,17 +36,4 @@ export class HttpExtendedService {
       headers: this.checkApiCall(url)
     });
   }
-
-
-  //intercept(observable: Observable<Response>): Observable<Response> {
-  //  return observable.catch((err, source) => {
-  //    if (err.status == 401 && !_.endsWith(err.url, 'api/auth/login')) {
-  //      this._router.navigate(['/login']);
-  //      return Observable.empty();
-  //    } else {
-  //      return Observable.throw(err);
-  //    }
-  //  });
-  //  return observable;
-  //}
 }

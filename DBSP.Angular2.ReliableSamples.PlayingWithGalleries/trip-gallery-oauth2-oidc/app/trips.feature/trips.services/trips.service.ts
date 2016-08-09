@@ -5,6 +5,7 @@ import { OidcTokenManagerService }        from '../../common.services/OidcTokenM
 import { HttpExtendedService }            from '../../common.services/HttpExtended.service';
 //import { HttpInterceptorService }         from '../../common.services/HttpInterceptor.service';
 
+// Don't remove this, it might be necessary for the future.
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
 import "rxjs/add/observable/empty";
@@ -30,14 +31,6 @@ export class TripsService {
     return new Observable((observer: Observer<any[]>) => {
       this._http
         .get(url)
-        .catch((err, source) => {
-          if (err.status == 401) {
-            this._oidcTokenManager.mgr.redirectForToken();
-            return Observable.empty();
-          } else {
-            return Observable.throw(err);
-          }
-        })
         .map(resp => resp.json())
         .subscribe((trips) => {
           this._trips = trips;
