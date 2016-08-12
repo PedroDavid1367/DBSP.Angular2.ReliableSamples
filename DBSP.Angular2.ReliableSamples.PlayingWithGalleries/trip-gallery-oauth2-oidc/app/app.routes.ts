@@ -5,7 +5,8 @@ import { TripsHomeComponent }          from "./trips.feature/trips-home.componen
 import { TripsHomegGuard }             from "./trips.feature/trips-home.guard";
 import { CallbackComponent }           from "./home.feature/callback.component";
 import { MaterializeHomeComponent }    from "./materialize-samples/materialize-home.component";
-import { NotesHomeComponent }          from "./notes.feature/notes-home.component"; 
+import { NotesHomeComponent }          from "./notes.feature/notes-home.component";
+import { RxJSSamplesHomeComponent }    from "./rxjs-samples.feature/rxjs-samples-home.component";
 
 import { LocalLogoutComponent }        from "./home.feature/local-logout.component";
 import { SilentRefreshComponent }      from "./home.feature/silent-refresh.component";
@@ -32,6 +33,10 @@ const APP_ROUTES: RouterConfig = [
   {
     path: 'note-components',
     component: NotesHomeComponent
+  },
+  {
+    path: 'rxjs-samples',
+    component: RxJSSamplesHomeComponent
   },
   {
     path: 'callback',
