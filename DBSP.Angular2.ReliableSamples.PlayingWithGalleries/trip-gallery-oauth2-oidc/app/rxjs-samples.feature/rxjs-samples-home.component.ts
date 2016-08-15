@@ -1,62 +1,25 @@
-import { Component, OnInit, AfterViewInit, ElementRef,
-  ViewChild, Renderer }  from '@angular/core';
-import { Observable }    from "rxjs/Observable";
+import { Component }          from "@angular/core";
+import { ROUTER_DIRECTIVES }  from "@angular/router";
 
 @Component({
   selector: 'rxjs-samples-home',
-  styles: [`
-  .board {
-    height: 100px;
-    width: 200px;
-    border: solid black 1px;
-    background-color: beige;
-  }  
-  `],
   template: `
-  <input #input type="text" placeholder="A focused text input" />
   <div class="row">
-    <div class="col m6">
-      <div #board_a class="board"></div>
+    <div class="col s3">
+      <ul>
+        <li><a [routerLink]="['./rxjs-sample-01']">Sample 01</a></li>
+        <li><a [routerLink]="['./rxjs-sample-02']">Sample 02</a></li>
+      </ul>
     </div>
-    <div class="col m6">
-      <div #board_b class="board"></div>
+
+    <div class="col s9">
+        <router-outlet></router-outlet>
     </div>
-  <div>
-  <br />
-  <br />
-  <p>{{ result }}</p>
-  `
+  </div>
+  `,
+  directives: [ROUTER_DIRECTIVES],
 })
-export class RxJSSamplesHomeComponent implements AfterViewInit
+export class RxJSSamplesHomeComponent
 {
-  @ViewChild('input') input: ElementRef;
-  @ViewChild('board_a') board_a: ElementRef;
-  @ViewChild('board_b') board_b: ElementRef;
-  private sourceBoard_a: Observable<any>;
-  private sourceBoard_b: Observable<any>;
-  // TODO: change subscription to Subscription type.
-  private subscription: any;
-  private result: number = 0;
 
-  constructor(private renderer: Renderer) { }
-
-  ngAfterViewInit()
-  {
-    this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
-    this.sourceBoard_a = Observable.fromEvent(this.board_a.nativeElement, "click");
-    this.sourceBoard_b = Observable.fromEvent(this.board_b.nativeElement, "click");
-
-    this.sourceBoard_a.take(2)
-      .subscribe(e => this.result++);
-    this.sourceBoard_b.take(3)
-      .subscribe(e => this.result++);
-
-    let eg = Observable.merge(this.sourceBoard_a, this.sourceBoard_b);
-    eg.subscribe(e => {
-      if (this.result === 5)
-      {
-        alert("^_^");
-      }
-    });
-  } 
 }

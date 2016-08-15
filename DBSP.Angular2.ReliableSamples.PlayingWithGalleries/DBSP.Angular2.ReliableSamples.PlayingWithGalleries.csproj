@@ -152,6 +152,9 @@
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home.feature\not-found.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\home\home.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\main.ts" />
+    <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\rxjs-samples.feature\rxjs-sample02.component.ts" />
+    <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\rxjs-samples.feature\rxjs-sample01.component.ts" />
+    <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\rxjs-samples.feature\rxjs-samples-home.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\trips.feature\trips-home.guard.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\materialize-samples\materialize-home.component.ts" />
     <TypeScriptCompile Include="trip-gallery-oauth2-oidc\app\materialize-samples\dbsp-collapsible.component.ts" />

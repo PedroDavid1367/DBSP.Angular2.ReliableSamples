@@ -7,6 +7,8 @@ import { CallbackComponent }           from "./home.feature/callback.component";
 import { MaterializeHomeComponent }    from "./materialize-samples/materialize-home.component";
 import { NotesHomeComponent }          from "./notes.feature/notes-home.component";
 import { RxJSSamplesHomeComponent }    from "./rxjs-samples.feature/rxjs-samples-home.component";
+import { RxJSSample01Component }       from "./rxjs-samples.feature/rxjs-sample01.component";
+import { RxJSSample02Component }       from "./rxjs-samples.feature/rxjs-sample02.component";
 
 import { LocalLogoutComponent }        from "./home.feature/local-logout.component";
 import { SilentRefreshComponent }      from "./home.feature/silent-refresh.component";
@@ -36,7 +38,21 @@ const APP_ROUTES: RouterConfig = [
   },
   {
     path: 'rxjs-samples',
-    component: RxJSSamplesHomeComponent
+    component: RxJSSamplesHomeComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'rxjs-sample-01'
+      },
+      {
+        path: 'rxjs-sample-01',
+        component: RxJSSample01Component
+      },
+      {
+        path: 'rxjs-sample-02',
+        component: RxJSSample02Component
+      }
+    ]
   },
   {
     path: 'callback',
